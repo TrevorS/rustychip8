@@ -1,0 +1,6 @@
+[package]
+name = "rustychip8"
+version = "0.1.0"
+authors = ["Trevor Strieber <trevor@strieber.org>"]
+
+[dependencies]
