@@ -31,13 +31,15 @@ impl Cpu {
         }
     }
 
+    pub fn video_buffer(&self) -> Vec<u8> {
+        self.video.to_vec()
+    }
+
     pub fn step(&mut self) {
-        print_address(self.pc);
+        // print_address(self.pc);
 
         let instruction = self.mmu.read_word(self.pc as usize);
         self.execute(instruction);
-
-        println!("");
 
         if self.delay_timer > 0 {
             self.delay_timer -= 1;
@@ -45,14 +47,14 @@ impl Cpu {
 
         if self.sound_timer > 0 {
             if self.sound_timer == 1 {
-                println!("BEEP");
+                // println!("BEEP");
             }
             self.sound_timer -= 1;
         }
     }
 
     fn execute(&mut self, instruction: u16) {
-        println!("Instruction: {}", format!("{:X}", instruction));
+        // println!("Instruction: {}", format!("{:X}", instruction));
 
         match instruction {
             0x00E0 => {
@@ -392,7 +394,7 @@ impl Cpu {
 
     // 0xBnnn
     fn jp_v0(&mut self, instruction: u16) {
-        self.pc = (instruction & 0x0FFF) + self.registers[0];
+        self.pc = (instruction & 0x0FFF) + self.registers[0] as u16;
     }
 
     // 0xCxkk

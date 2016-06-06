@@ -5,3 +5,4 @@ authors = ["Trevor Strieber <trevor@strieber.org>"]
 
 [dependencies]
 rand = "0.3.14"
+sdl2 = "0.20.0"

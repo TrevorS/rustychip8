@@ -57,7 +57,7 @@ impl Mmu {
     }
 
     pub fn load_rom(&mut self, filename: String) {
-        println!("Loading ROM: #{}", filename);
+        // println!("Loading ROM: #{}", filename);
         match read_rom(filename) {
             Ok(rom) => {
                 for (i, value) in rom.iter().enumerate() {
